@@ -1,5 +1,4 @@
 ﻿using Dominio.Shared;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +39,6 @@ namespace Infra.DAO.ORM
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

@@ -45,7 +45,6 @@ namespace ConfigurationManager
             aluguelConfigAppConfig["Etanol"] = new JValue(config.ValorEtanol);
 
             aluguelConfigAppConfig["Caucao"] = new JValue(config.ValorCaucao);
-
             Save(appConfig);
         }
     }

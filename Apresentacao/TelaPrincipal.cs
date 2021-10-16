@@ -19,6 +19,8 @@ namespace WindowsApp
         public static TelaPrincipal Instancia;
         public Funcionario FuncionarioLogado { get; }
         private Form formAtivo;
+        private bool logoff;
+
         public TelaPrincipal(Funcionario funcionario)
         {
             FuncionarioLogado = funcionario;
@@ -107,7 +109,8 @@ namespace WindowsApp
         }
         private void bt_sair_Click(object sender, EventArgs e)
         {
-            Dispose();
+            logoff = true;
+            Close();
             new Login().Show();
         }
         private void btVeiculosSubMenu_Click(object sender, EventArgs e)
@@ -149,10 +152,10 @@ namespace WindowsApp
 
         private void TelaPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if ((sender as Form).ActiveControl.Text.Contains("Sair"))
-                Application.Exit();
-            else
+            if (Instancia.logoff)
                 Instancia = null;
+            else
+                Application.Exit();
         }
 
         #endregion

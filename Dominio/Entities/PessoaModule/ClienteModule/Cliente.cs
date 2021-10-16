@@ -10,7 +10,10 @@ namespace Dominio.Entities.PessoaModule.ClienteModule
         {
             _Cliente = cliente;
         }
-        protected Cliente() { }
+        protected Cliente()
+        {
+            _Cliente = new Cliente();
+        }
 
         public string Email { get { return _Cliente.Email; } set { _Cliente.Email = value; } }
         public string Nome { get { return _Cliente.Nome; } set { _Cliente.Nome = value; } }

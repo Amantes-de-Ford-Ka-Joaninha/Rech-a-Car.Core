@@ -66,7 +66,7 @@ namespace Infra.ORM.AluguelModule
         public void DeveEnviarPdf()
         {
             relatorioORM.SalvarRelatorio(new PDFAluguel().GerarRelatorio(aluguel));
-            AluguelAppServices.TentaEnviarRelatorioEmail();
+            //AluguelAppServices.TentaEnviarRelatorioEmail();
 
             relatorioORM.GetProxEnvio().Should().BeNull();
         }

@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Reflection;
 
 namespace ConfigurationManager
 {
     public class AppConfigManager
     {
-        protected const string pathAppConfig = @"..\..\..\appsettings.json";
+        protected static string pathAppConfig = @$"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\appsettings.json";
 
         protected static void Save(JObject newAppConfig)
         {

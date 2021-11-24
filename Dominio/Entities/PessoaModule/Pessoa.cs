@@ -20,12 +20,9 @@ namespace Dominio.PessoaModule
             Endereco = endereco;
             Documento = documento;
 
-            if (ETipoPessoa == ETipoPessoa.CNPJ)
-                TipoPessoa = new CNPJ(Documento);
-            if (ETipoPessoa == ETipoPessoa.CPF)
-                TipoPessoa = new CPF(Documento);
+
         }
-        public TipoPessoa TipoPessoa { get; init; }
+        public TipoPessoa TipoPessoa { get; set; }
 
         public override string Validar()
         {
@@ -37,6 +34,11 @@ namespace Dominio.PessoaModule
                 validador += "Telefone inválido.\n";
             if (Endereco == string.Empty)
                 validador += "Insira um endereço.\n";
+
+            if (ETipoPessoa == ETipoPessoa.CNPJ)
+                TipoPessoa = new CNPJ(Documento);
+            if (ETipoPessoa == ETipoPessoa.CPF)
+                TipoPessoa = new CPF(Documento);
 
             validador += TipoPessoa.ValidarDocumento();
 

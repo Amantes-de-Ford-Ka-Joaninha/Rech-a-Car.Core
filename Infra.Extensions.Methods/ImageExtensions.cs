@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -19,6 +20,13 @@ namespace Infra.Extensions.Methods
         {
             using var ms = new MemoryStream(imageBytes);
             return Image.FromStream(ms);
+        }
+        public static Image Base64ToImage(this string base64String)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+
+            using var ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            return Image.FromStream(ms, true);
         }
     }
 }

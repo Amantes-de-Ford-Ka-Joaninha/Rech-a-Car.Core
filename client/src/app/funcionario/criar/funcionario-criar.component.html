@@ -1,0 +1,72 @@
+<div class="container main-container">
+    <h4>Cadastrar Funcionario</h4>
+    <hr />
+    <form novalidate [formGroup]="cadastroForm" (ngSubmit)='adicionarFuncionario()'>
+        <div clas="form-group">
+
+            <label class="col-md-2 control-label" for="nome">Nome</label>
+            <div class="col-md-10">
+                <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)"
+                    formControlName="nome" />
+            </div>
+
+            <label class="col-md-2 control-label" for="telefone">Telefone</label>
+            <div class="col-md-10">
+                <input class="form-control" id="telefone" type="text" placeholder="Telefone do funcionário (requerido)"
+                    formControlName="telefone" />
+            </div>
+
+            <label class="col-md-2 control-label" for="endereco">Endereco</label>
+            <div class="col-md-10">
+                <input class="form-control" id="endereco" type="text" placeholder="Endereço (requerido)"
+                    formControlName="endereco" />
+            </div>
+
+            <label class="col-md-2 control-label" for="documento">Documento</label>
+            <div class="col-md-10">
+                <input class="form-control" id="documento" type="text" placeholder="Documento (CPF ou CNPJ, requerido)"
+                    formControlName="documento" />
+            </div>
+
+            <label class="col-md-2 control-label" for="usuario">Usuario</label>
+            <div class="col-md-10">
+                <input class="form-control" id="usuario" type="text" placeholder="Usuario para login (requerido)"
+                    formControlName="usuario" />
+            </div>
+
+            <label class="col-md-2 control-label" for="senha">Senha</label>
+            <div class="col-md-10">
+                <div>
+                    <input class="form-control" id="senha" type="string" placeholder="Senha para login (requerido)"
+                        formControlName="senha" />
+                </div>
+            </div>
+            
+            <label class="col-md-2 control-label" for="cargo">Cargo</label>
+            <div class="col-md-10">
+                <select class="form-control" id="cargo" formControlName="cargo">
+                    <option value="">Selecione um Cargo</option>
+                    <option *ngFor="let chave of chaves" value={{chave}}>
+                        {{cargos[chave]}}
+                    </option>
+                </select>
+            </div>
+
+            <label class="col-md-2 control-label" for="foto">Foto</label>
+            <div class="col-md-10">
+                <div>
+                    <input class="form-control" id="foto" type="file" placeholder="Foto para usuário (requerido)"
+                        formControlName="foto" />
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span><button class="btn btn-success" id="registrar" type="submit">Registrar</button></span>
+                <span><button class="btn btn-danger" id="cancelar" (click)="cancelar()">Cancelar</button></span>
+            </div>
+        </div>
+    </form>
+</div>

@@ -68,7 +68,7 @@ namespace Infra.DAO.AluguelModule
         public void DeveEnviarPdf()
         {
             rd.SalvarRelatorio(pa.GerarRelatorio(aluguel));
-            AluguelAppServices.TentaEnviarRelatorioEmail();
+            //AluguelAppServices.TentaEnviarRelatorioEmail();
 
             rd.GetProxEnvio().Should().BeNull();
         }
